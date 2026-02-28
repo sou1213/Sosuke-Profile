@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プロフィール | [高橋壮介]</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: auto; padding: 20px; color: #333; }
+        h1 { color: #0366d6; border-bottom: 2px solid #eee; }
+        .tag { background: #f1f8ff; color: #0366d6; padding: 5px 10px; border-radius: 5px; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <h1>[お名前] のプロフィール</h1>
+    <p class="tag">起業家 / [現在の肩書き]</p>
+    
+    <h2>自己紹介</h2>
+    <p>ここにあなたのビジョンや、現在取り組んでいるプロジェクトの熱い想いを書きましょう。</p>
+
+    <h2>専門スキル・強み</h2>
+    <ul>
+        <li>スキル1：[具体的な実績など]</li>
+        <li>スキル2：[具体的な実績など]</li>
+    </ul>
+
+    <h2>SNS / お問い合わせ</h2>
+    <p>
+        <a href="[X(Twitter)のURL]">X (Twitter)</a> / 
+        <a href="[LinkedInのURL]">LinkedIn</a>
+    </p>
+</body>
+</html>

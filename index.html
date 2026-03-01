@@ -162,6 +162,81 @@
             fill: #fff; /* 触れるとアイコンが白く光るように追加 */
         }
         /* ------------------------------------------------ */
+		/* --- ここから追加：ダークモード切替ボタンとテーマのスタイル --- */
+        
+        /* 右上に固定配置 */
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        /* ボタンのデザイン (sass.txtを参考) */
+        .theme-toggle button {
+            border: 1px solid #333;
+            padding: .5rem 1rem;
+            background: #333;
+            border-radius: 5px;
+            transition: background 200ms ease;
+            color: #eaeaea;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: bold;
+        }
+        .theme-toggle button:hover {
+            background: rgba(51, 51, 51, 0.8);
+        }
+
+        /* 既存のbodyにアニメーションを追加 (sass.txtを参考) */
+        body {
+            /* 背景と文字色が800ミリ秒かけて変化する設定 */
+            transition: background-color 800ms ease, color 800ms ease;
+        }
+
+        /* --- ライトモード（基本状態）の色設定 --- */
+        /* 提供元のコードに合わせて、基本をライトモードにします */
+        body {
+            background-color: #eaeaea; /* sass.txtを参考 */
+            color: #333;
+        }
+        h1, h2, .label, .role-badge, .kanji {
+            color: #333;
+        }
+        p, .project-desc, .sub-text, .keywords {
+            color: #555;
+        }
+        .role-badge {
+            background-color: #ddd;
+        }
+
+        /* --- ダークモード（.darkがついた時）の色設定 --- */
+        /* 現在のサイトの黒いデザインをここに引き継ぎます */
+        body.dark {
+            background-color: #111;
+            color: #f5f5f7;
+        }
+        body.dark h1, body.dark .label {
+            color: #fff;
+        }
+        body.dark h2 {
+            color: #888;
+            border-bottom: 1px solid #333;
+        }
+        body.dark p, body.dark .project-desc {
+            color: #ccc;
+        }
+        body.dark .role-badge {
+            background-color: #f5f5f7;
+            color: #111;
+        }
+        body.dark .sub-text, body.dark .kanji {
+            color: #888;
+        }
+        body.dark .keywords {
+            color: #a0aab5;
+        }
+        /* ------------------------------------------------------- */
         footer {
             margin-top: 80px;
             font-size: 11px;
@@ -169,9 +244,16 @@
             letter-spacing: 0.1em;
             text-transform: uppercase;
         }
+		
     </style>
 </head>
 <body>
+	<body>
+    <div class="theme-toggle">
+        <button class="dark-button">Dark</button>
+        <button class="light-button" style="display: none;">Light</button>
+    </div>
+    <div class="container">
     <div class="container">
         <header>
             <h1>SOSUKE TAKAHASHI <span class="kanji">- 高橋 壮介</span></h1>
@@ -224,5 +306,55 @@
             &copy; 2026 SOSUKE TAKAHASHI
         </footer>
     </div>
+		<script>
+            var darkMode;
+            
+            // localStorageに保存されているかチェック
+            if (localStorage.getItem('dark-mode')) {  
+                // if dark mode is in storage, set variable with that value [cite: 2]
+                darkMode = localStorage.getItem('dark-mode');
+            } else {  
+                // 提供元のコードでは'light'が初期値でしたが [cite: 3]、
+                // あなたのサイトの雰囲気を活かすため初期値を'dark'にしています。
+                darkMode = 'dark';
+            }
+
+            // set new localStorage value 
+            localStorage.setItem('dark-mode', darkMode);
+
+            var darkBtn = document.querySelector('.dark-button');
+            var lightBtn = document.querySelector('.light-button');
+            var body = document.querySelector('body');
+
+            // ページ読み込み時の状態を反映
+            if (localStorage.getItem('dark-mode') == 'dark') {
+                // if the above is 'dark' then apply .dark to the body [cite: 5]
+                body.classList.add('dark');
+                // hide the 'dark' button [cite: 5]
+                darkBtn.style.display = 'none';
+                // show the 'light' button [cite: 5]
+                lightBtn.style.display = 'block';
+            }
+
+            // Toggle dark UI [cite: 6]
+            darkBtn.addEventListener('click', function() {  
+                darkBtn.style.display = 'none';
+                lightBtn.style.display = 'block';
+                body.classList.add('dark');  
+                // set stored value to 'dark' [cite: 6]
+                localStorage.setItem('dark-mode', 'dark');
+            });
+
+            // Toggle light UI
+            lightBtn.addEventListener('click', function() {  
+                lightBtn.style.display = 'none';
+                darkBtn.style.display = 'block';
+                body.classList.remove('dark');
+                // set stored value to 'light' [cite: 7]
+                localStorage.setItem('dark-mode', 'light');   
+            });
+        </script>
+        </body>
+</html>
 </body>
 </html>

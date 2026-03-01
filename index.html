@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SOSUKE TAKAHASHI - 高橋 壮介 | LOG</title>
     <style>
-        /* スマートフォンでのレイアウト崩れを防ぐための必須設定 */
         * {
             box-sizing: border-box;
         }
         body {
-            background-color: #111; /* 完全な真っ黒(#000)より少しだけ浮かせた黒で目に優しく */
+            background-color: #111;
             color: #f5f5f7;
             font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Kaku Gothic ProN", Arial, sans-serif;
             line-height: 1.8;
@@ -18,161 +17,22 @@
             padding: 40px 20px 80px;
             display: flex;
             justify-content: center;
-            /* 黒背景での文字の視認性を高める設定 */
             -webkit-font-smoothing: antialiased;
+            /* 背景と文字色が800ミリ秒かけて変化する設定 */
+            transition: background-color 800ms ease, color 800ms ease;
         }
         .container {
             max-width: 500px;
             width: 100%;
         }
-        header {
-            margin-bottom: 50px;
-        }
-        h1 {
-            font-size: 22px;
-            letter-spacing: 0.15em;
-            margin: 0;
-            font-weight: 500;
-            text-transform: uppercase;
-        }
-        .kanji {
-            font-size: 0.85em;
-            font-weight: normal;
-            letter-spacing: 0.1em;
-            color: #888; /* 漢字部分は少し控えめな色に */
-            margin-left: 8px;
-        }
-        .sub-text {
-            font-size: 13px;
-            color: #888;
-            margin-top: 12px;
-            letter-spacing: 0.05em;
-        }
-
-/* --- ここから追加：スライドインのアニメーション定義 --- */
-        @keyframes slideIn {
-            0% {
-                opacity: 0; /* 最初は透明 */
-                transform: translateX(-20px); /* 少し左にずらしておく */
-            }
-            100% {
-                opacity: 1; /* 最後は不透明 */
-                transform: translateX(0); /* 元の位置に戻る */
-            }
-        }
-        /* ------------------------------------------------ */
-/* --- ここから追加：肩書きバッジのスタイルと動き --- */
-        .role-badge {
-            display: inline-block;
-            font-size: 12px;
-            color: #111;
-            background-color: #f5f5f7; /* 白背景に黒文字で目立たせる */
-            padding: 4px 12px;
-            border-radius: 20px;
-            margin-top: 12px;
-            margin-bottom: 4px;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            
-            /* アニメーションの適用：slideInという動きを1.5秒かけて実行 */
-            animation: slideIn 1.5s ease-out;
-        }
-        /* -------------------------------------------------- */
-		/* --- ここから追加：キーワード羅列のスタイル --- */
-        .keywords {
-            font-size: 12.5px;
-            color: #a0aab5; /* 少し青みがかったクールなグレー */
-            margin-top: 18px;
-            margin-bottom: 8px;
-            letter-spacing: 0.05em;
-            font-family: "SF Mono", "Menlo", Consolas, monospace; /* エンジニアらしいコード風フォント */
-        }
-        .keywords .slash {
-            color: #444; /* スラッシュの色を暗くして単語を際立たせる */
-            margin: 0 6px;
-        }
-        /* ------------------------------------------ */
-        section {
-            margin-bottom: 40px;
-        }
-        h2 {
-            font-size: 13px;
-            color: #888;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            border-bottom: 1px solid #333;
-            padding-bottom: 8px;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 14.5px;
-            color: #ccc;
-            margin: 0 0 15px 0;
-        }
-        .project-item {
-            margin-bottom: 25px;
-        }
-        .label {
-            display: block;
-            color: #fff;
-            font-size: 14px;
-            margin-bottom: 6px;
-            font-weight: 500;
-            letter-spacing: 0.05em;
-        }
-        .project-desc {
-            font-size: 14.5px;
-            color: #ccc;
-            margin: 0;
-        }
-        /* --- いただいたコードをダークモード用に最適化したCSS --- */
-        .sns-box {
-            display: flex;
-            gap: 2rem;
-            margin-top: 40px;
-            justify-content: flex-start; /* 左寄せ */
-        }
-        .btn-sns {
-            display: grid;
-            place-content: center;
-            width: 3.5rem;
-            height: 3.5rem;
-            box-sizing: border-box;
-            border-radius: 0.5rem; /* 少し丸みを持たせると立体感が綺麗に出ます */
-            background-color: #111; /* 背景色と同じにして要素を同化させる */
-            text-decoration: none;
-            /* 1sだとスマホでは反応が遅く感じるため、0.5sに調整しています */
-            transition: 0.5s; 
-        }
-        .btn-sns svg {
-            fill: #9FA9B4;
-            width: 1.5rem;
-            height: 1.5rem;
-            transition: 0.5s;
-        }
-        /* 触れた時に「ダークモードの影」を出して立体的に浮き上がらせる */
-        .btn-sns:hover {
-            /* 黒背景に合わせて影の色と広がり方を調整しました */
-            box-shadow: 6px 6px 12px #070707, 
-                       -6px -6px 12px #1b1b1b;
-        }
-        .btn-sns:hover svg {
-            fill: #fff; /* 触れるとアイコンが白く光るように追加 */
-        }
-        /* ------------------------------------------------ */
-		/* --- ここから追加：ダークモード切替ボタンとテーマのスタイル --- */
         
-        /* 右上に固定配置 */
+        /* --- ダークモード切替ボタン --- */
         .theme-toggle {
             position: absolute;
             top: 20px;
             right: 20px;
             z-index: 100;
         }
-
-        /* ボタンのデザイン (sass.txtを参考) */
         .theme-toggle button {
             border: 1px solid #333;
             padding: .5rem 1rem;
@@ -188,55 +48,162 @@
             background: rgba(51, 51, 51, 0.8);
         }
 
-        /* 既存のbodyにアニメーションを追加 (sass.txtを参考) */
-        body {
-            /* 背景と文字色が800ミリ秒かけて変化する設定 */
-            transition: background-color 800ms ease, color 800ms ease;
+        header {
+            margin-bottom: 50px;
+        }
+        h1 {
+            font-size: 22px;
+            letter-spacing: 0.15em;
+            margin: 0;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        .kanji {
+            font-size: 0.85em;
+            font-weight: normal;
+            letter-spacing: 0.1em;
+            color: #888;
+            margin-left: 8px;
         }
 
-        /* --- ライトモード（基本状態）の色設定 --- */
-        /* 提供元のコードに合わせて、基本をライトモードにします */
-        body {
-            background-color: #eaeaea; /* sass.txtを参考 */
-            color: #333;
+        /* スライドインアニメーション */
+        @keyframes slideIn {
+            0% { opacity: 0; transform: translateX(-20px); }
+            100% { opacity: 1; transform: translateX(0); }
         }
-        h1, h2, .label, .role-badge, .kanji {
-            color: #333;
-        }
-        p, .project-desc, .sub-text, .keywords {
-            color: #555;
-        }
+
         .role-badge {
-            background-color: #ddd;
+            display: inline-block;
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-top: 12px;
+            margin-bottom: 4px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            animation: slideIn 1.5s ease-out;
         }
 
-        /* --- ダークモード（.darkがついた時）の色設定 --- */
-        /* 現在のサイトの黒いデザインをここに引き継ぎます */
+        .keywords {
+            font-size: 12.5px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+            letter-spacing: 0.05em;
+            font-family: "SF Mono", "Menlo", Consolas, monospace;
+        }
+        .keywords .slash {
+            color: #444;
+            margin: 0 6px;
+        }
+        .sub-text {
+            font-size: 13px;
+            margin-top: 12px;
+            letter-spacing: 0.05em;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+        h2 {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border-bottom: 1px solid #333;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 14.5px;
+            margin: 0 0 15px 0;
+        }
+        .project-item {
+            margin-bottom: 25px;
+        }
+        .label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 6px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+        .project-desc {
+            font-size: 14.5px;
+            margin: 0;
+        }
+
+        /* --- SNSボタン（ニューモーフィズム）ベース --- */
+        .sns-box {
+            display: flex;
+            gap: 2rem;
+            margin-top: 40px;
+            justify-content: flex-start;
+        }
+        .btn-sns {
+            display: grid;
+            place-content: center;
+            width: 3.5rem;
+            height: 3.5rem;
+            box-sizing: border-box;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: 0.5s; 
+        }
+        .btn-sns svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            transition: 0.5s;
+        }
+
+        /* =========================================
+           ライトモード（基本状態）の色設定
+           ========================================= */
+        body {
+            background-color: #eaeaea; 
+            color: #333;
+        }
+        h1, h2, .label, .role-badge, .kanji { color: #333; }
+        p, .project-desc, .sub-text, .keywords { color: #555; }
+        .role-badge { background-color: #ddd; }
+        
+        /* SNSボタン（ライトモード用） */
+        .btn-sns { background-color: #eaeaea; }
+        .btn-sns svg { fill: #777; }
+        .btn-sns:hover {
+            box-shadow: 6px 6px 12px #c8c8c8, -6px -6px 12px #ffffff;
+        }
+        .btn-sns:hover svg { fill: #111; }
+
+
+        /* =========================================
+           ダークモード（.dark）の色設定
+           ========================================= */
         body.dark {
             background-color: #111;
             color: #f5f5f7;
         }
-        body.dark h1, body.dark .label {
-            color: #fff;
-        }
+        body.dark h1, body.dark .label { color: #fff; }
         body.dark h2 {
             color: #888;
             border-bottom: 1px solid #333;
         }
-        body.dark p, body.dark .project-desc {
-            color: #ccc;
-        }
+        body.dark p, body.dark .project-desc { color: #ccc; }
         body.dark .role-badge {
             background-color: #f5f5f7;
             color: #111;
         }
-        body.dark .sub-text, body.dark .kanji {
-            color: #888;
+        body.dark .sub-text, body.dark .kanji { color: #888; }
+        body.dark .keywords { color: #a0aab5; }
+
+        /* SNSボタン（ダークモード用） */
+        body.dark .btn-sns { background-color: #111; }
+        body.dark .btn-sns svg { fill: #9FA9B4; }
+        body.dark .btn-sns:hover {
+            box-shadow: 6px 6px 12px #070707, -6px -6px 12px #1b1b1b;
         }
-        body.dark .keywords {
-            color: #a0aab5;
-        }
-        /* ------------------------------------------------------- */
+        body.dark .btn-sns:hover svg { fill: #fff; }
+
         footer {
             margin-top: 80px;
             font-size: 11px;
@@ -244,20 +211,18 @@
             letter-spacing: 0.1em;
             text-transform: uppercase;
         }
-		
     </style>
 </head>
 <body>
-	<body>
     <div class="theme-toggle">
         <button class="dark-button">Dark</button>
         <button class="light-button" style="display: none;">Light</button>
     </div>
-    <div class="container">
+    
     <div class="container">
         <header>
             <h1>SOSUKE TAKAHASHI <span class="kanji">- 高橋 壮介</span></h1>
-	    <div class="role-badge">iOS Engineer</div>
+            <div class="role-badge">iOS Engineer</div>
             
             <div class="keywords">
                 Swift <span class="slash">/</span> iOS App <span class="slash">/</span> OSS <span class="slash">/</span> UI Design
@@ -296,7 +261,7 @@
                     <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
                 </svg>
             </a>
-<a href="https://github.com/sou1213" class="btn-sns btn-github" target="_blank">
+            <a href="https://github.com/sou1213" class="btn-sns btn-github" target="_blank">
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 496 512">
                     <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path>
                 </svg>
@@ -306,55 +271,45 @@
             &copy; 2026 SOSUKE TAKAHASHI
         </footer>
     </div>
-		<script>
-            var darkMode;
-            
-            // localStorageに保存されているかチェック
-            if (localStorage.getItem('dark-mode')) {  
-                // if dark mode is in storage, set variable with that value [cite: 2]
-                darkMode = localStorage.getItem('dark-mode');
-            } else {  
-                // 提供元のコードでは'light'が初期値でしたが [cite: 3]、
-                // あなたのサイトの雰囲気を活かすため初期値を'dark'にしています。
-                darkMode = 'dark';
-            }
 
-            // set new localStorage value 
-            localStorage.setItem('dark-mode', darkMode);
+    <script>
+        var darkBtn = document.querySelector('.dark-button');
+        var lightBtn = document.querySelector('.light-button');
+        var body = document.querySelector('body');
 
-            var darkBtn = document.querySelector('.dark-button');
-            var lightBtn = document.querySelector('.light-button');
-            var body = document.querySelector('body');
+        function safeGetStorage(key) {
+            try { return localStorage.getItem(key); } catch(e) { return null; }
+        }
+        function safeSetStorage(key, value) {
+            try { localStorage.setItem(key, value); } catch(e) {}
+        }
 
-            // ページ読み込み時の状態を反映
-            if (localStorage.getItem('dark-mode') == 'dark') {
-                // if the above is 'dark' then apply .dark to the body [cite: 5]
-                body.classList.add('dark');
-                // hide the 'dark' button [cite: 5]
-                darkBtn.style.display = 'none';
-                // show the 'light' button [cite: 5]
-                lightBtn.style.display = 'block';
-            }
+        var savedMode = safeGetStorage('dark-mode');
+        
+        // デフォルトをダークモードにする
+        if (savedMode === 'light') {
+            body.classList.remove('dark');
+            darkBtn.style.display = 'block';
+            lightBtn.style.display = 'none';T
+        } else {
+            body.classList.add('dark');
+            darkBtn.style.display = 'none';
+            lightBtn.style.display = 'block';
+        }
 
-            // Toggle dark UI [cite: 6]
-            darkBtn.addEventListener('click', function() {  
-                darkBtn.style.display = 'none';
-                lightBtn.style.display = 'block';
-                body.classList.add('dark');  
-                // set stored value to 'dark' [cite: 6]
-                localStorage.setItem('dark-mode', 'dark');
-            });
+        darkBtn.addEventListener('click', function() {
+            body.classList.add('dark');
+            darkBtn.style.display = 'none';
+            lightBtn.style.display = 'block';
+            safeSetStorage('dark-mode', 'dark');
+        });
 
-            // Toggle light UI
-            lightBtn.addEventListener('click', function() {  
-                lightBtn.style.display = 'none';
-                darkBtn.style.display = 'block';
-                body.classList.remove('dark');
-                // set stored value to 'light' [cite: 7]
-                localStorage.setItem('dark-mode', 'light');   
-            });
-        </script>
-        </body>
-</html>
+        lightBtn.addEventListener('click', function() {
+            body.classList.remove('dark');
+            darkBtn.style.display = 'block';
+            lightBtn.style.display = 'none';
+            safeSetStorage('dark-mode', 'light');
+        });
+    </script>
 </body>
 </html>

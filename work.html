@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="高橋壮介が制作中のWebアプリケーションと学習成果を紹介します。">
+    <title>WORK | SOU - そう | LOG</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./theme.js" defer></script>
+</head>
+<body>
+    <nav class="site-nav" aria-label="メインナビゲーション">
+        <div class="site-nav__inner">
+            <a class="site-mark" href="./index.html" aria-label="SOU LOG ホーム">SOU / LOG</a>
+            <div class="site-links">
+                <a class="nav-link" href="./index.html">Home</a>
+                <a class="nav-link" href="./work.html" aria-current="page">Work</a>
+            </div>
+            <button class="theme-toggle" type="button" aria-label="表示テーマを切り替える" aria-pressed="false">Dark</button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="page-header">
+            <p class="eyebrow">Selected Work</p>
+            <h1>WORK</h1>
+            <p class="page-lead">完成品だけでなく、考えながら形にしている途中のプロジェクトも制作記録として掲載しています。</p>
+        </header>
+
+        <section aria-labelledby="web-apps-title">
+            <h2 id="web-apps-title">Web Application</h2>
+            <article class="work-card">
+                <div class="work-card__meta">
+                    <span class="status-badge">Work in Progress</span>
+                    <span>2026</span>
+                </div>
+                <h3>Your Feel Of Wallpaper</h3>
+                <p>気分や時間帯に合う「壁紙 × 音楽」の組み合わせを、誰かのコメントと一緒に探索するWebアプリケーションです。</p>
+                <p>朝・昼・夕方・夜で画面全体の雰囲気が変わり、奥行きのある空間をスクロールしながら投稿を探せるプロトタイプを制作しています。</p>
+
+                <ul class="feature-list">
+                    <li>時間帯に連動する背景と投稿の切り替え</li>
+                    <li>奥行きスクロールによる投稿探索</li>
+                    <li>壁紙、コメント、タグ、外部音楽リンクの詳細表示</li>
+                    <li>キーボード操作とReduced Motionへの対応</li>
+                </ul>
+
+                <div class="notice-box">
+                    現在は開発途中です。ログイン、実際の投稿、検索、データ保存などは未実装で、表示内容にはモックデータを使用しています。
+                </div>
+
+                <div class="tech-list" aria-label="使用技術">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>WebGL</span>
+                    <span>Cloudflare Pages</span>
+                </div>
+
+                <div class="work-actions">
+                    <a class="primary-link" href="https://your-feel-of-wallpaper-q8m4x7.pages.dev/" target="_blank" rel="noopener noreferrer">Live Preview <span aria-hidden="true">↗</span></a>
+                    <span class="private-note">Source code: Private</span>
+                </div>
+            </article>
+        </section>
+
+        <footer>&copy; 2026 SOSUKE TAKAHASHI</footer>
+    </main>
+</body>
+</html>

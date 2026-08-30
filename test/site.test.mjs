@@ -27,7 +27,7 @@ test("Workページは制作物と未完成の範囲を明記する", async () =
     assert.match(work, /Goodnotes/);
     assert.match(work, /シンプルさと使いやすさ/);
     assert.match(work, /App Storeにはまだ公開していません/);
-    assert.match(work, /https:\/\/github\.com\/sou1213\/TaskManager/);
+    assert.doesNotMatch(work, /https:\/\/github\.com\/sou1213\/TaskManager/);
     assert.match(work, /Your Feel Of Wallpaper/);
     assert.match(work, /Work in Progress/);
     assert.match(work, /現在は開発途中です/);

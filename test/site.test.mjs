@@ -50,7 +50,7 @@ test("各ページは検索とSNS共有向けの固有メタデータを持つ",
     assert.match(home, /<meta name="twitter:card" content="summary">/);
 
     assert.match(work, /<title>制作実績 \| TaskManager・iOS\/Webアプリ \| 高橋壮介<\/title>/);
-    assert.match(work, /<link rel="canonical" href="https:\/\/sou-profile\.pages\.dev\/work\.html">/);
+    assert.match(work, /<link rel="canonical" href="https:\/\/sou-profile\.pages\.dev\/work">/);
     assert.match(work, /<meta property="og:title" content="制作実績 \| TaskManager・iOS\/Webアプリ \| 高橋壮介">/);
     assert.match(work, /<meta name="twitter:card" content="summary">/);
 
@@ -91,7 +91,7 @@ test("robots.txtとサイトマップはCloudflareの正式URLを案内する", 
     assert.match(robots, /^Allow: \/$/m);
     assert.match(robots, /^Sitemap: https:\/\/sou-profile\.pages\.dev\/sitemap\.xml$/m);
     assert.match(sitemap, /<loc>https:\/\/sou-profile\.pages\.dev\/<\/loc>/);
-    assert.match(sitemap, /<loc>https:\/\/sou-profile\.pages\.dev\/work\.html<\/loc>/);
+    assert.match(sitemap, /<loc>https:\/\/sou-profile\.pages\.dev\/work<\/loc>/);
     assert.doesNotMatch(sitemap, /github\.io/);
     assert.match(buildScript, /"robots\.txt"/);
     assert.match(buildScript, /"sitemap\.xml"/);

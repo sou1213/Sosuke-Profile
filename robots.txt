@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sou-profile.pages.dev/sitemap.xml

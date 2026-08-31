@@ -13,7 +13,15 @@ if (isAbsolute(relativeOutput) || relativeOutput === "" || relativeOutput.starts
 await rm(outputRoot, { recursive: true, force: true });
 await mkdir(outputRoot, { recursive: true });
 
-const publicFiles = ["index.html", "work.html", "styles.css", "theme.js", "_headers"];
+const publicFiles = [
+    "index.html",
+    "work.html",
+    "styles.css",
+    "theme.js",
+    "robots.txt",
+    "sitemap.xml",
+    "_headers"
+];
 
 for (const file of publicFiles) {
     await cp(join(projectRoot, file), join(outputRoot, file));
